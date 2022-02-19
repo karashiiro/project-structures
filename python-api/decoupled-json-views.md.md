@@ -37,7 +37,8 @@ class SomeView(View):
 ```
 
 ### Principles
-Don't give views much (if any) logic beyond what is necessary to serialize them correctly.
+Don't give views much (if any) logic beyond what is necessary to serialize them correctly. Also, avoid referencing web framework types in views - the
+point of them is to stay as decoupled from the web framework as possible.
 
 ### Usage
 Views can then be used like regular classes. Be sure to call the `to_dict()` method when returning one as a `dict`.
@@ -51,6 +52,7 @@ def index():
 ## Benefits
 - JSON responses can be strongly-typed.
 - Views aren't required to have any logic, unlike Flask's `MethodView` etc.
+- Views are decoupled (by default) from any framework-specific concepts, so they usually won't need to change if you switch frameworks.
 
 ## Drawbacks
 - The term "view" can be confused with Flask concepts with the same name.
