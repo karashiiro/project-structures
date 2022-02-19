@@ -36,6 +36,8 @@ class SomeView(View):
         self.some_field = some_field
 ```
 
+`__init__.py` should re-export any views you want to use in your application. It should not export the base `View` class.
+
 ### Principles
 Don't give views much (if any) logic beyond what is necessary to serialize them correctly. Also, avoid referencing web framework types in views - the
 point of them is to stay as decoupled from the web framework as possible.
